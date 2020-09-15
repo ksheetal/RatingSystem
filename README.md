@@ -62,4 +62,4 @@ Clone this project [link](https://github.com/ksheetal/RatingSystem.git) first.
 7) it will prompt a alert then type username as oye123 and password as oye123Api
 8) it will open swagger UI that conatains backend apis.
 
-An alternative way can be clone this project and open folder in intellij go to run menu or click on run. this will also run you project. 
+An alternative way can be clone this project and open folder in intellij go to run menu and click on run. this will also run your project. 
