@@ -45,3 +45,19 @@ private Integer rating;
 private String review;
 @NonNull
 private String By;
+
+ #### Tools/Tech-Stack
+ - [Spring Boot/ MongoDB]
+ - [Spring Security, Lambok, Mongo, Logger ]
+ 
+ #### How to Run?
+Clone this project [link](https://github.com/ksheetal/RatingSystem.git) first.
+
+1) Go to oyeRickshaw project folder.
+2) Go to this file oyeRickshaw/src/main/resources/application.properties and fill mongo cred according to your local mongo setup.
+3) Type mvn clean then mvn package [make sure you have maven installed into your sytem]
+4) Step-3 will create a targert folder, to to this folder and run this command java -jar oyeRickshaw-0.0.1-SNAPSHOT.jar
+5) This will run your application on port 8080
+6) In browser, open http:://localhost:8080/swagger-ui.com
+7) it will prompt a alert then type username as oye123 and password as oye123Api
+8) it will open swagger UI that conatains backend apis.
