@@ -58,6 +58,7 @@ public class RatingController {
     public String getAvgRatingRideByUserID(@PathVariable String userID) {
         LOG.info("Getting all Ride by user ID.");
         System.out.println("userID - " + userID);
+        // fetching all details
         List<RatingModel> allRating = ratingRepository.findAll();
         double avgRating = 0.0;
         int totalRide = 0;
@@ -70,6 +71,4 @@ public class RatingController {
         }
         return "User's rating is " + Float.valueOf((float) (avgRating / totalRide)) + "!";
     }
-
-
 }
