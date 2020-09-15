@@ -27,8 +27,11 @@ public class RatingController {
 
     @PostMapping("/rateRide")
     public String RateRide(@RequestBody RatingModel ratingModel) throws IllegalAccessException {
-        LOG.info("inside Rating ");
+        LOG.info("inside Rating: {Enter} ");
+
         ratingRepository.save(ratingModel);
+
+        LOG.info("inside Rating: {Exit} ");
         return "you have given " + ratingModel.getRating() + " rating !";
     }
 
@@ -43,12 +46,12 @@ public class RatingController {
 
         // avg rating  = total dive rating / total drive
         for (int i = 0; i < allRating.size(); i++) {
-            if (allRating.get(i).getDriverID().equals(driverID) && allRating.get(i).getRatedBy().equalsIgnoreCase("User")) {
+            if (allRating.get(i).getDriverID().equals(driverID) && allRating.get(i).getRatedBy().equalsIgnoreCase("Driver")) {
                 avgRating = avgRating + allRating.get(i).getRating();
                 totalRide++;
             }
         }
-        return "driver's rating is " + Float.valueOf((float) (avgRating / totalRide)) + "!";
+        return "Driver's rating is " + Float.valueOf((float) (avgRating / totalRide)) + "!";
     }
 
     @RequestMapping(value = "/getAvgRatingByUserID/{userID}", method = RequestMethod.GET)
@@ -60,14 +63,13 @@ public class RatingController {
         int totalRide = 0;
 
         for (int i = 0; i < allRating.size(); i++) {
-            if (allRating.get(i).getUserID().equals(userID) && allRating.get(i).getRatedBy().equalsIgnoreCase("Driver")) {
+            if (allRating.get(i).getUserID().equals(userID) && allRating.get(i).getRatedBy().equalsIgnoreCase("User")) {
                 avgRating = avgRating + allRating.get(i).getRating();
                 totalRide++;
             }
         }
-        return "user's rating is " + Float.valueOf((float) (avgRating / totalRide)) + "!";
+        return "User's rating is " + Float.valueOf((float) (avgRating / totalRide)) + "!";
     }
-
 
 
 }
